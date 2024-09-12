@@ -1,0 +1,121 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('../png/fundo2.png');
+    background-size: cover; /* para ajustar o tamanho da imagem */
+    background-position: auto; /* para posicionar a imagem */
+}
+
+header {
+    background-color: #874caf;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.menu-icon img {
+    width: 40px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.inicio-button, .contratos-button, .alugar-button, .propriedades-button, .logout-button {
+    background-color: rgba(0, 0, 0, 0.63);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.inicio-button {
+    background-color: rgba(212, 64, 64, 0.63);
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    max-width: 1200px;
+    background-color: rgba(248, 248, 248, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0 0 0 2px rgb(0, 0, 0); /* Adiciona sombra */
+    margin: center;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px;
+    background-color: #957dad;
+    box-shadow: 0 0 0 2px rgb(0, 0, 0); /* Adiciona sombra */
+    border: none;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+button:hover {
+    background-color: #805d9a;
+}
+
+#contractStatus {
+    color: #333;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+
+/* Media queries for responsiveness */
+@media screen and (min-width: 576px) {
+    .container {
+        width: 70vw;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 60vw;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container {
+        width: 50vw;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 40vw;
+        background: #805d9a34;
+    }
+}

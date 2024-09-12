@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Propriedades e Contratos</title>
+    <link rel="stylesheet" href="../CSS/propriedades.css">
+
+</head>
+<body>
+    <header>
+        <div class="menu-icon">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div class="header-buttons">
+            <button class="inicio-button">INICIO</button>
+            <button class="alugar-button">ALUGAR</button>
+            <button class="contratos-button">CONTRATOS</button>
+            <button class="propriedades-button">CADASTRO DE PROPRIEDADES</button>
+            <button class="logout-button">SAIR</button>
+        </div>
+    </header>
+
+    <div class="tabs">
+        <div class="tab active" data-tab="property">Cadastro de Propriedades</div>
+        <div class="tab" data-tab="contract">Adicionar Novo Contrato</div>
+    </div>
+
+    <div class="tab-content active" id="property">
+        <h2>Cadastro de Propriedades</h2>
+        <form id="property-form">
+            <label for="property-name">Nome da Propriedade:</label>
+            <input type="text" id="property-name" name="property-name" required>
+
+            <label for="property-description">Descrição:</label>
+            <textarea id="property-description" name="property-description" rows="4" required></textarea>
+
+            <label for="property-image">Imagem:</label>
+            <input type="file" id="property-image" name="property-image" accept="image/*" required>
+
+            <label for="property-type">Tipo de Propriedade:</label>
+            <select id="property-type" name="property-type" required>
+                <option value="casa">Casa</option>
+                <option value="sitio">Sítio</option>
+                <option value="fazenda">Fazenda</option>
+            </select>
+
+            <button type="submit">Cadastrar Propriedade</button>
+        </form>
+        
+        <div class="contracts-container">
+            <!-- Lista de propriedades cadastradas será preenchida dinamicamente -->
+        </div>
+    </div>
+
+    <div class="tab-content" id="contract">
+        <h2>Adicionar Novo Contrato</h2>
+        <form id="contract-form">
+            <label for="contract-name">Nome do Contrato:</label>
+            <input type="text" id="contract-name" name="contract-name" required>
+
+            <label for="contract-description">Descrição:</label>
+            <textarea id="contract-description" name="contract-description" rows="4" required></textarea>
+
+            <label for="contract-image">Imagem:</label>
+            <input type="file" id="contract-image" name="contract-image" accept="image/*" required>
+
+            <label for="contract-type">Tipo de Contrato:</label>
+            <select id="contract-type" name="contract-type" required>
+                <option value="aluguel">Aluguel</option>
+                <option value="compra">Compra</option>
+                <option value="venda">Venda</option>
+            </select>
+
+            <button type="submit">Cadastrar Contrato</button>
+        </form>
+
+        <div class="contracts-container">
+            <!-- Lista de contratos cadastrados será preenchida dinamicamente -->
+        </div>
+    </div>
+
+    <script src="../JavaScript/paginacao.js"></script>
+    <script src="../JavaScript/propriedades.js"></script>
+</body>
+</html>

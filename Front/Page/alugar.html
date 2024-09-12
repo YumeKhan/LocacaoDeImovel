@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Propriedade</title>
+    <link rel="stylesheet" href="../CSS/alugar.css">
+</head>
+<body>
+    <header>
+        <div class="menu-icon">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div class="header-buttons">
+            <button class="inicio-button">INICIO</button>
+            <button class="alugar-button">ALUGAR</button>
+            <button class="contratos-button">CONTRATOS</button>
+            <button class="propriedades-button">CADASTRO DE PROPRIEDADES</button>
+            <button class="logout-button">SAIR</button>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h2>Detalhes da Propriedade</h2>
+        
+        <div class="contract-item">
+            <img id="property-image-detail" src="" alt="Imagem da Propriedade" style="width: 100%; height: auto; border-radius: 10px;">
+            <h3 id="property-name-detail"></h3>
+            <p id="property-description-detail"></p>
+            <a href="#">Voltar ao Cadastro</a>
+        </div>
+    </div>
+
+    <script src="../JavaScript/paginacao.js"></script>
+
+    <script>
+        window.onload = function() {
+            // Get data from local storage
+            const name = localStorage.getItem('property-name');
+            const description = localStorage.getItem('property-description');
+            const image = localStorage.getItem('property-image');
+
+            // Populate the details
+            document.getElementById('property-name-detail').textContent = name;
+            document.getElementById('property-description-detail').textContent = description;
+            document.getElementById('property-image-detail').src = image;
+        };
+    </script>
+</body>
+</html>
