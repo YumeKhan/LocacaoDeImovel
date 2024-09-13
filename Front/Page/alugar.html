@@ -21,30 +21,60 @@
     </header>
     
     <div class="container">
-        <h2>Detalhes da Propriedade</h2>
+        <h2>Propriedade</h2>
         
         <div class="contract-item">
-            <img id="property-image-detail" src="" alt="Imagem da Propriedade" style="width: 100%; height: auto; border-radius: 10px;">
-            <h3 id="property-name-detail"></h3>
+            <img id="property-image-detail" src="" alt="Imagem da Propriedade">
+            <div class="contract h4">
+                <h4 id="property-name-detail"></h4>
+            </div>
             <p id="property-description-detail"></p>
-            <a href="#">Voltar ao Cadastro</a>
+            <a href="#">Ver Detalhes</a>
         </div>
+
+        <!-- Botão de excluir propriedade -->
+        <button id="delete-property" style="background-color: red; color: white; padding: 10px 20px; border: none; cursor: pointer;">Excluir Propriedade</button>
     </div>
-
     <script src="../JavaScript/paginacao.js"></script>
-
+    <script src="../JavaScript/alugar.js"></script>
+    
     <script>
         window.onload = function() {
-            // Get data from local storage
-            const name = localStorage.getItem('property-name');
-            const description = localStorage.getItem('property-description');
-            const image = localStorage.getItem('property-image');
+    // Obter os dados do localStorage
+    const name = localStorage.getItem('property-name');
+    const description = localStorage.getItem('property-description');
+    const image = localStorage.getItem('property-image');
 
-            // Populate the details
-            document.getElementById('property-name-detail').textContent = name;
-            document.getElementById('property-description-detail').textContent = description;
-            document.getElementById('property-image-detail').src = image;
-        };
+    // Verificar se há dados no localStorage
+    if (name && description && image) {
+        // Preencher os campos com os dados recuperados
+        document.getElementById('property-name-detail').textContent = name;
+        document.getElementById('property-description-detail').textContent = description;
+        document.getElementById('property-image-detail').src = image;
+    } else {
+        alert("Nenhuma propriedade cadastrada.");
+    }
+
+    // Função para excluir a propriedade
+    document.getElementById('delete-property').addEventListener('click', function() {
+        const confirmation = confirm("Tem certeza que deseja excluir esta propriedade?");
+        
+        if (confirmation) {
+            // Remover os dados do localStorage
+            localStorage.removeItem('property-name');
+            localStorage.removeItem('property-description');
+            localStorage.removeItem('property-image');
+            
+            alert("Propriedade excluída com sucesso!");
+            
+            // Atualizar a página para refletir a exclusão
+            document.getElementById('property-name-detail').textContent = '';
+            document.getElementById('property-description-detail').textContent = '';
+            document.getElementById('property-image-detail').src = '';
+        }
+    });
+};
     </script>
+    
 </body>
 </html>

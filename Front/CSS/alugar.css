@@ -54,10 +54,16 @@ header {
     margin-top: 50px;
 }
 
+.contract h4 {
+    margin-top: -50px;
+}
+
 h2 {
     text-align: center;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra ajustada */
 }
+
 
 form {
     display: flex;
@@ -118,6 +124,7 @@ button:hover {
     width: 100%;
     height: auto;
     border-radius: 10px;
+    margin-top: -50px;
 }
 
 .contract-item h3 {
@@ -137,6 +144,7 @@ button:hover {
     border-radius: 10px;
     text-decoration: none;
     margin-top: 10px;
+    margin-left: 300px;
 }
 
 .contract-item a:hover {

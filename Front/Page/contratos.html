@@ -20,12 +20,80 @@
     <main>
         <div class="container">
             <h2>Bem-vindo ao sistema de contratos</h2>
-            <div class="contracts-container">
-                <!-- Lista de contratos será preenchida dinamicamente -->
-            </div>
+            
         </div>
     </main>
     <script src="../JavaScript/paginacao.js"></script>
     <script src="../JavaScript/contratos.js"></script>
+    <script>
+        window.onload = function() {
+    const contracts = JSON.parse(localStorage.getItem('contracts')) || [];
+
+    const contractName = localStorage.getItem('contract-name');
+    const contractDescription = localStorage.getItem('contract-description');
+    const contractPDF = localStorage.getItem('contract-pdf');
+    const contractType = localStorage.getItem('contract-type');
+
+    // Se todos os dados estiverem presentes, adiciona o novo contrato
+    if (contractName && contractDescription && contractPDF && contractType) {
+        const newContract = {
+            name: contractName,
+            description: contractDescription,
+            pdf: contractPDF,
+            type: contractType
+        };
+
+        contracts.push(newContract);
+        localStorage.setItem('contracts', JSON.stringify(contracts));
+
+        // Limpa os valores individuais
+        localStorage.removeItem('contract-name');
+        localStorage.removeItem('contract-description');
+        localStorage.removeItem('contract-pdf');
+        localStorage.removeItem('contract-type');
+    }
+
+    const contractsContainer = document.querySelector('.contracts-container');
+
+    // Exibe os contratos cadastrados
+    if (contracts.length > 0) {
+        contracts.forEach(contract => {
+            const contractItem = document.createElement('div');
+            contractItem.classList.add('contract-item');
+
+            contractItem.innerHTML = `
+                <h3>${contract.name}</h3>
+                <p><strong>Tipo:</strong> ${contract.type}</p>
+                <p>${contract.description}</p>
+                <a href="${contract.pdf}" download="Contrato-${contract.name}.pdf">Baixar Contrato</a>
+                <button class="delete-contract-button" style="background-color: red; color: white; padding: 10px 20px; border: none; cursor: pointer;">Excluir Contrato</button>
+            `;
+            contractsContainer.appendChild(contractItem);
+
+            // Função para excluir o contrato
+            contractItem.querySelector('.delete-contract-button').addEventListener('click', function() {
+                const confirmation = confirm("Tem certeza que deseja excluir este contrato?");
+                if (confirmation) {
+                    // Remove o contrato da lista
+                    const index = contracts.indexOf(contract);
+                    if (index !== -1) {
+                        contracts.splice(index, 1);
+                        localStorage.setItem('contracts', JSON.stringify(contracts));
+                    }
+
+                    // Remove o contrato da tela
+                    contractsContainer.removeChild(contractItem);
+
+                    alert("Contrato excluído com sucesso!");
+                }
+            });
+        });
+    } else {
+        contractsContainer.innerHTML = '<p>Nenhum contrato cadastrado.</p>';
+    }
+};
+
+
+    </script>
 </body>
 </html>

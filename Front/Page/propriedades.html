@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Propriedades e Contratos</title>
     <link rel="stylesheet" href="../CSS/propriedades.css">
-
 </head>
 <body>
     <header>
@@ -26,6 +25,7 @@
         <div class="tab" data-tab="contract">Adicionar Novo Contrato</div>
     </div>
 
+    <!-- Cadastro de Propriedades -->
     <div class="tab-content active" id="property">
         <h2>Cadastro de Propriedades</h2>
         <form id="property-form">
@@ -48,11 +48,14 @@
             <button type="submit">Cadastrar Propriedade</button>
         </form>
         
-        <div class="contracts-container">
+        <!-- Exibição das propriedades cadastradas para alugar -->
+        <div class="properties-list">
+            <h3>Propriedades Disponíveis para Alugar</h3>
             <!-- Lista de propriedades cadastradas será preenchida dinamicamente -->
         </div>
     </div>
 
+    <!-- Adicionar Novo Contrato -->
     <div class="tab-content" id="contract">
         <h2>Adicionar Novo Contrato</h2>
         <form id="contract-form">
@@ -62,8 +65,8 @@
             <label for="contract-description">Descrição:</label>
             <textarea id="contract-description" name="contract-description" rows="4" required></textarea>
 
-            <label for="contract-image">Imagem:</label>
-            <input type="file" id="contract-image" name="contract-image" accept="image/*" required>
+            <label for="contract-pdf">PDF do Contrato:</label>
+            <input type="file" id="contract-pdf" name="contract-pdf" accept=".pdf" required>
 
             <label for="contract-type">Tipo de Contrato:</label>
             <select id="contract-type" name="contract-type" required>
@@ -75,7 +78,9 @@
             <button type="submit">Cadastrar Contrato</button>
         </form>
 
-        <div class="contracts-container">
+        <!-- Exibição dos contratos cadastrados -->
+        <div class="contracts-list">
+            <h3>Contratos Cadastrados</h3>
             <!-- Lista de contratos cadastrados será preenchida dinamicamente -->
         </div>
     </div>

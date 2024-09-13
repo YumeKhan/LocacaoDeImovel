@@ -20,13 +20,39 @@
     <main>
         <div class="container">
             <h2>Bem-vindo ao sistema de contratos</h2>
-            <p>Insira o código do contrato abaixo para verificar sua disponibilidade:</p>
-            <input type="text" id="contractCode" placeholder="Insira o código do contrato">
+            <p>Insira o código ou nome do contrato abaixo para verificar sua disponibilidade:</p>
+            <input type="text" id="contractCode" placeholder="Insira o código ou nome do contrato">
             <button onclick="checkContract()">Verificar</button>
-            <p id="contractStatus"></p>
+            <div id="contractStatus"></div>
         </div>
     </main>
+
     <script src="../JavaScript/paginacao.js"></script>
-    <script src="../JavaScript/inicio.js"></script>
+
+    <script>
+        function checkContract() {
+            const contractCode = document.getElementById('contractCode').value.trim();
+            const contracts = JSON.parse(localStorage.getItem('contracts')) || [];
+            const contractStatus = document.getElementById('contractStatus');
+
+            // Procura pelo contrato no localStorage
+            const foundContract = contracts.find(contract => contract.name === contractCode || contract.code === contractCode);
+
+            if (foundContract) {
+                contractStatus.innerHTML = `
+                    <h3>Contrato Encontrado</h3>
+                    <p><strong>Nome:</strong> ${foundContract.name}</p>
+                    <p><strong>Descrição:</strong> ${foundContract.description}</p>
+                    <p><strong>Tipo:</strong> ${foundContract.type}</p>
+                    <p><a href="${foundContract.pdf}" target="_blank">Visualizar Contrato (PDF)</a></p>
+                    <p><a href="${foundContract.pdf}" download="Contrato-${foundContract.name}.pdf">Baixar Contrato (PDF)</a></p>
+                `;
+            } else {
+                contractStatus.textContent = 'Contrato não encontrado.';
+            }
+        }
+
+        
+    </script>
 </body>
 </html>

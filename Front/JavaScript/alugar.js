@@ -38,4 +38,5 @@ document.getElementById('property-form').addEventListener('submit', function(eve
 
     // Limpar o formulário
     this.reset();
+
 });

@@ -114,37 +114,3 @@ function downloadPDF(id) {
 const contractsContainer = document.createElement('div');
 contractsContainer.classList.add('contracts-container');
 document.body.appendChild(contractsContainer);
-
-// Criando o modal de edição dinamicamente com estilo centralizado
-const editModal = document.createElement('div');
-editModal.id = 'editModal';
-editModal.style.display = 'none';
-editModal.style.position = 'fixed';
-editModal.style.top = '50%';
-editModal.style.left = '50%';
-editModal.style.transform = 'translate(-50%, -50%)';
-editModal.style.backgroundColor = '#fff';
-editModal.style.padding = '20px';
-editModal.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
-editModal.style.borderRadius = '8px';
-editModal.style.width = '300px';
-editModal.style.zIndex = '1000';
-editModal.innerHTML = `
-    <h2>Editar Contrato</h2>
-    <form id="editContractForm">
-        <label for="contractName">Nome do Contrato:</label>
-        <input type="text" id="contractName" name="contractName" required>
-        <br><br>
-        <label for="contractDesc">Descrição:</label>
-        <textarea id="contractDesc" name="contractDesc" required></textarea>
-        <br><br>
-        <button type="submit">Salvar</button>
-        <button type="button" onclick="closeEditModal()">Cancelar</button>
-    </form>
-`;
-document.body.appendChild(editModal);
-
-// Carregando os contratos na página
-document.addEventListener('DOMContentLoaded', function() {
-    loadContracts();
-});
